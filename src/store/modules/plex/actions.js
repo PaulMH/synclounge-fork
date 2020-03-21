@@ -176,9 +176,9 @@ export default {
                 for (const key in connection) {
                   tempConnection[key] = connection[key];
                 }
-                tempConnectionsArray.push(tempConnection);
-                if (connection.local === '1' && connection.uri.indexOf('plex.direct') == -1 && connection.address.indexOf('com') > -1) {
+                if (connection.local === '0' && connection.uri.indexOf('plex.direct') == -1 && connection.address.indexOf('com') > -1) {
                   const rawConnection = new PlexConnection();
+                  console.log(connection.address);
                   Object.assign(rawConnection, connection);
                   rawConnection.uri = `${connection.protocol}://${connection.address}:${connection.port}`;
                   rawConnection.isManual = true;
