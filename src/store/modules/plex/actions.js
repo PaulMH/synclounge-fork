@@ -76,7 +76,7 @@ export default {
           if (err) {
             return reject(err);
           }
-          var client = 10;
+          var client = 3;
           for (var index in result.MediaContainer.Device) {
             const device = result.MediaContainer.Device[index].$;
             const connections = result.MediaContainer.Device[index].Connection;
@@ -177,7 +177,7 @@ export default {
                   tempConnection[key] = connection[key];
                 }
                 tempConnectionsArray.push(tempConnection);
-                if (connection.local === '1' && connection.uri.indexOf('plex.direct') == -1 && connection.uri.indexOf('com') > -1) {
+                if (connection.local === '1' && connection.uri.indexOf('plex.direct') == -1 && connection.address.indexOf('com') > -1) {
                   const rawConnection = new PlexConnection();
                   Object.assign(rawConnection, connection);
                   rawConnection.uri = `${connection.protocol}://${connection.address}:${connection.port}`;
