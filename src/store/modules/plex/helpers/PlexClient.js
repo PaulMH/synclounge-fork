@@ -95,7 +95,6 @@ module.exports = function PlexClient() {
             query += `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}&`;
           }
           query = query.substring(0, query.length - 1);
-          console.log(query);
           if (connection.uri.charAt(connection.uri.length - 1) === '/') {
             // Remove a trailing / that some clients broadcast
             connection.uri = connection.uri.slice(0, connection.uri.length - 1);
@@ -349,7 +348,7 @@ module.exports = function PlexClient() {
     const serverId = serverObject.clientIdentifier;
     const address = serverObject.chosenConnection.address;
     const port = serverObject.chosenConnection.port;
-    const protocol = serverObject.chosenConnection.protocol; //Check where this comes from
+    const protocol = serverObject.chosenConnection.protocol;
     const path = serverObject.chosenConnection.uri + mediaId;
 
     const params = {
